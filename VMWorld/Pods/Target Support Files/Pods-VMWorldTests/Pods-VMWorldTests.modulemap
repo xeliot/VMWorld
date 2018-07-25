@@ -1,0 +1,6 @@
+framework module Pods_VMWorldTests {
+  umbrella header "Pods-VMWorldTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

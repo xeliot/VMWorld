@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct RGBA32: Equatable {
     private var color: UInt32
@@ -72,10 +73,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var pickedImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //pickedImage = squareImage(image: pickedImage)
         pickedImage = pickedImage.noir
         pickedImage = processPixels(in: pickedImage)!
-        //pickedImage = pickedImage.resized(toWidth: 28.0)!
-        photoImage.contentMode = .scaleToFill
+        pickedImage = pickedImage.resized(toWidth: 28.0)!
+        photoImage.contentMode = .scaleAspectFill
         photoImage.image = pickedImage
         picker.dismiss(animated: true, completion: nil)
     }
@@ -123,6 +125,67 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return outputImage
     }
     
+    func pixelArray(in image: UIImage) -> [[Float]]? {
+        guard let inputCGImage = image.cgImage else {
+            print("unable to get cgImage")
+            return nil
+        }
+        let colorSpace       = CGColorSpaceCreateDeviceRGB()
+        let width            = inputCGImage.width
+        let height           = inputCGImage.height
+        let bytesPerPixel    = 4
+        let bitsPerComponent = 8
+        let bytesPerRow      = bytesPerPixel * width
+        let bitmapInfo       = RGBA32.bitmapInfo
+        
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            print("unable to create context")
+            return nil
+        }
+        context.draw(inputCGImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        guard let buffer = context.data else {
+            print("unable to get context data")
+            return nil
+        }
+        
+        let pixelBuffer = buffer.bindMemory(to: RGBA32.self, capacity: width * height)
+        
+        var fullArray = [[Float]]()
+        
+        for row in 0 ..< Int(height) {
+            var rowArray = [Float]()
+            for column in 0 ..< Int(width) {
+                let offset = row * width + column
+                print("red")
+                print(pixelBuffer[offset].redComponent)
+                print("green")
+                print(pixelBuffer[offset].greenComponent)
+                print("blue")
+                print(pixelBuffer[offset].blueComponent)
+                print("offset")
+                print(offset)
+                rowArray.append(Float(pixelBuffer[offset].redComponent))
+            }
+            fullArray.append(rowArray)
+        }
+        
+        return fullArray
+    }
+    
+    @IBAction func predictNumber(_ sender: UIButton) {
+        let bitmap = pixelArray(in: photoImage.image!)!
+        print(bitmap)
+        let parameters: Parameters = ["data": bitmap]
+        let url = "enter url here"
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{ response in
+            if let result = response.result.value {
+                
+                let JSON = (result as! NSDictionary)
+                print(JSON)
+            }
+        }
+    }
 }
 
 extension UIImage {
@@ -134,7 +197,8 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     func resized(toWidth width: CGFloat) -> UIImage? {
-        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        //let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        let canvasSize = CGSize(width: width, height: width)
         UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
         defer { UIGraphicsEndImageContext() }
         draw(in: CGRect(origin: .zero, size: canvasSize))

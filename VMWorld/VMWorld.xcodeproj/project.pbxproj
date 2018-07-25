@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E8D08BD1B6708C4BFD9ACF4 /* Pods_VMWorldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FAD2822B957D367FD4653F /* Pods_VMWorldUITests.framework */; };
 		79C5F1DF210820C50023EE5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5F1DE210820C50023EE5B /* AppDelegate.swift */; };
 		79C5F1E1210820C60023EE5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5F1E0210820C50023EE5B /* ViewController.swift */; };
 		79C5F1E4210820C60023EE5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C5F1E2210820C60023EE5B /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		79C5F1E9210820C80023EE5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C5F1E7210820C80023EE5B /* LaunchScreen.storyboard */; };
 		79C5F1F4210820C80023EE5B /* VMWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5F1F3210820C80023EE5B /* VMWorldTests.swift */; };
 		79C5F1FF210820C80023EE5B /* VMWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5F1FE210820C80023EE5B /* VMWorldUITests.swift */; };
+		C74F497BFD532AE5D6B9DD31 /* Pods_VMWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32854B80D732CD82223DA530 /* Pods_VMWorld.framework */; };
+		FB31A924FA1E41C12F2BB028 /* Pods_VMWorldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624066B1D40E25FFD6F11458 /* Pods_VMWorldTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15F20306B829D1D9C685056B /* Pods-VMWorldUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMWorldUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VMWorldUITests/Pods-VMWorldUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		32854B80D732CD82223DA530 /* Pods_VMWorld.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VMWorld.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		624066B1D40E25FFD6F11458 /* Pods_VMWorldTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VMWorldTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C5F1DB210820C50023EE5B /* VMWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C5F1DE210820C50023EE5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C5F1E0210820C50023EE5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		79C5F1FA210820C80023EE5B /* VMWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VMWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C5F1FE210820C80023EE5B /* VMWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMWorldUITests.swift; sourceTree = "<group>"; };
 		79C5F200210820C80023EE5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8879773940B824FF1BAA3AE1 /* Pods-VMWorldUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMWorldUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VMWorldUITests/Pods-VMWorldUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9B644DC139ACF4FFDD932242 /* Pods-VMWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VMWorld/Pods-VMWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		D8FAD2822B957D367FD4653F /* Pods_VMWorldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VMWorldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD49B2EF3F07087A3A1E4D15 /* Pods-VMWorldTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMWorldTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VMWorldTests/Pods-VMWorldTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EBE0D1A5680B3F53238BFC15 /* Pods-VMWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-VMWorld/Pods-VMWorld.release.xcconfig"; sourceTree = "<group>"; };
+		FC772B1BF412566A612E931E /* Pods-VMWorldTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMWorldTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VMWorldTests/Pods-VMWorldTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74F497BFD532AE5D6B9DD31 /* Pods_VMWorld.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB31A924FA1E41C12F2BB028 /* Pods_VMWorldTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8D08BD1B6708C4BFD9ACF4 /* Pods_VMWorldUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A17C8F4A47B6853686475A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32854B80D732CD82223DA530 /* Pods_VMWorld.framework */,
+				624066B1D40E25FFD6F11458 /* Pods_VMWorldTests.framework */,
+				D8FAD2822B957D367FD4653F /* Pods_VMWorldUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		79C5F1D2210820C50023EE5B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,8 @@
 				79C5F1F2210820C80023EE5B /* VMWorldTests */,
 				79C5F1FD210820C80023EE5B /* VMWorldUITests */,
 				79C5F1DC210820C50023EE5B /* Products */,
+				F7E4964D43E3515B741142EF /* Pods */,
+				0A17C8F4A47B6853686475A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +152,19 @@
 			path = VMWorldUITests;
 			sourceTree = "<group>";
 		};
+		F7E4964D43E3515B741142EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B644DC139ACF4FFDD932242 /* Pods-VMWorld.debug.xcconfig */,
+				EBE0D1A5680B3F53238BFC15 /* Pods-VMWorld.release.xcconfig */,
+				DD49B2EF3F07087A3A1E4D15 /* Pods-VMWorldTests.debug.xcconfig */,
+				FC772B1BF412566A612E931E /* Pods-VMWorldTests.release.xcconfig */,
+				15F20306B829D1D9C685056B /* Pods-VMWorldUITests.debug.xcconfig */,
+				8879773940B824FF1BAA3AE1 /* Pods-VMWorldUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C5F203210820C80023EE5B /* Build configuration list for PBXNativeTarget "VMWorld" */;
 			buildPhases = (
+				FEC217CE94EDB49EB875305E /* [CP] Check Pods Manifest.lock */,
 				79C5F1D7210820C50023EE5B /* Sources */,
 				79C5F1D8210820C50023EE5B /* Frameworks */,
 				79C5F1D9210820C50023EE5B /* Resources */,
+				BD82B85E70E7701AFFF39CD8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C5F206210820C80023EE5B /* Build configuration list for PBXNativeTarget "VMWorldTests" */;
 			buildPhases = (
+				BE840CFACD64B091BB9A9891 /* [CP] Check Pods Manifest.lock */,
 				79C5F1EB210820C80023EE5B /* Sources */,
 				79C5F1EC210820C80023EE5B /* Frameworks */,
 				79C5F1ED210820C80023EE5B /* Resources */,
@@ -167,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C5F209210820C80023EE5B /* Build configuration list for PBXNativeTarget "VMWorldUITests" */;
 			buildPhases = (
+				9A6A499D9DA9DAB5E9F4DBAA /* [CP] Check Pods Manifest.lock */,
 				79C5F1F6210820C80023EE5B /* Sources */,
 				79C5F1F7210820C80023EE5B /* Frameworks */,
 				79C5F1F8210820C80023EE5B /* Resources */,
@@ -250,6 +294,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9A6A499D9DA9DAB5E9F4DBAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VMWorldUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD82B85E70E7701AFFF39CD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VMWorld/Pods-VMWorld-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VMWorld/Pods-VMWorld-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE840CFACD64B091BB9A9891 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VMWorldTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEC217CE94EDB49EB875305E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VMWorld-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79C5F1D7210820C50023EE5B /* Sources */ = {
@@ -428,6 +547,7 @@
 		};
 		79C5F204210820C80023EE5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B644DC139ACF4FFDD932242 /* Pods-VMWorld.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +567,7 @@
 		};
 		79C5F205210820C80023EE5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBE0D1A5680B3F53238BFC15 /* Pods-VMWorld.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +587,7 @@
 		};
 		79C5F207210820C80023EE5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD49B2EF3F07087A3A1E4D15 /* Pods-VMWorldTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +609,7 @@
 		};
 		79C5F208210820C80023EE5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC772B1BF412566A612E931E /* Pods-VMWorldTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +631,7 @@
 		};
 		79C5F20A210820C80023EE5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15F20306B829D1D9C685056B /* Pods-VMWorldUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +652,7 @@
 		};
 		79C5F20B210820C80023EE5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8879773940B824FF1BAA3AE1 /* Pods-VMWorldUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
