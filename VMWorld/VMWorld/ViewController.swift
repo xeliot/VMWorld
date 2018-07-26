@@ -52,15 +52,27 @@ struct RGBA32: Equatable {
     }
 }
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var photoImage: UIImageView!
+    @IBOutlet weak var predictedNumber: UILabel!
+    @IBOutlet weak var apiURL: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.photoImage.image = UIImage(named: "Loading")
         // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.apiURL.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     @IBAction func takePhoto(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             let imagePicker = UIImagePickerController()
@@ -74,12 +86,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var pickedImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         //pickedImage = squareImage(image: pickedImage)
-        pickedImage = pickedImage.noir
-        pickedImage = processPixels(in: pickedImage)!
-        pickedImage = pickedImage.resized(toWidth: 28.0)!
-        photoImage.contentMode = .scaleAspectFill
-        photoImage.image = pickedImage
-        picker.dismiss(animated: true, completion: nil)
+        self.photoImage.image = UIImage(named: "Processing")
+        picker.dismiss(animated: true, completion: { () in
+            pickedImage = pickedImage.noir
+            pickedImage = self.processPixels(in: pickedImage)!
+            pickedImage = pickedImage.resized(toWidth: 28.0)!
+            self.photoImage.contentMode = .scaleAspectFill
+            self.photoImage.image = pickedImage
+        })
+        print("camera was dismissed")
     }
     
     func processPixels(in image: UIImage) -> UIImage? {
@@ -111,10 +126,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         for row in 0 ..< Int(height) {
             for column in 0 ..< Int(width) {
                 let offset = row * width + column
-                if ((pixelBuffer[offset].redComponent > 100) && (pixelBuffer[offset].greenComponent > 100) && (pixelBuffer[offset].blueComponent > 100)) {
+                pixelBuffer[offset] = RGBA32(red: 255-pixelBuffer[offset].redComponent, green: 255-pixelBuffer[offset].greenComponent,   blue: 255-pixelBuffer[offset].blueComponent,   alpha: 255)
+                if ((pixelBuffer[offset].redComponent < 210) && (pixelBuffer[offset].greenComponent < 210) && (pixelBuffer[offset].blueComponent < 210)) {
                     pixelBuffer[offset] = .black
-                }else if((pixelBuffer[offset].redComponent < 100) && (pixelBuffer[offset].greenComponent < 100) && (pixelBuffer[offset].blueComponent < 100)) {
-                    pixelBuffer[offset] = .white
                 }
             }
         }
@@ -157,6 +171,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             var rowArray = [Float]()
             for column in 0 ..< Int(width) {
                 let offset = row * width + column
+                /*
                 print("red")
                 print(pixelBuffer[offset].redComponent)
                 print("green")
@@ -165,6 +180,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print(pixelBuffer[offset].blueComponent)
                 print("offset")
                 print(offset)
+                */
                 rowArray.append(Float(pixelBuffer[offset].redComponent))
             }
             fullArray.append(rowArray)
@@ -173,18 +189,64 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return fullArray
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 210
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 210
+            }
+        }
+    }
+    
     @IBAction func predictNumber(_ sender: UIButton) {
+        
         let bitmap = pixelArray(in: photoImage.image!)!
         print(bitmap)
         let parameters: Parameters = ["data": bitmap]
-        let url = "enter url here"
+        var url:String;
+        if (apiURL.text!.isEmpty){
+            url = "http://192.168.1.17:5000/mlaas/mnist"
+        }else{
+            url = "http://" + apiURL.text! + ":5000/mlaas/mnist"
+        }
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{ response in
             if let result = response.result.value {
                 
                 let JSON = (result as! NSDictionary)
-                print(JSON)
+                let result = JSON["result"] as! String
+                self.predictedNumber.text = "Predicted " + result
             }
         }
+ 
+        //let imageData = photoImage.image!.pngData()!
+        
+        //Alamofire.upload(imageData, to: "http://192.168.1.17:5000/mlaas/mnist").responseString { response in
+        //    print(response)
+        //}
+        /*
+        Alamofire.upload(multipartFormData: { formData in
+            formData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
+        }, to: "http://192.168.1.17:5000/mlaas/mnist", encodingCompletion: { result in
+            switch result {
+            case .success(let upload, _, _):
+                upload.validate().responseString(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value): print("success: \(value)")
+                    case .failure((let error)): print("response error \(error)")
+                    }
+                })
+            case .failure(let error):
+                print("encoding error \(error)")
+            }
+        })
+        */
     }
 }
 
@@ -213,5 +275,17 @@ extension UIImage {
             return UIImage(cgImage: cgImage, scale: scale, orientation: imageOrientation)
         }
         return nil
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
