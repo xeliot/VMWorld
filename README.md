@@ -7,7 +7,7 @@ Mnist application demo for iOS
 - Access to iPhone
 
 ### Steps to run project
-1. Clone this project into local hard drive  
+1. Clone this project into local hard drive by running the following command in the terminal:  
 `git clone https://github.com/xeliot/VMWorld.git`
 2. Open Finder Application  
 3. Navigate to the folder you cloned the repository  
