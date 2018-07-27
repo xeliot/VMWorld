@@ -1,4 +1,4 @@
-# VMWorld 2018 Mnist Demo
+# VMWorld Mnist iOS Demo
 Mnist application demo for iOS
 
 ### Prerequisites
